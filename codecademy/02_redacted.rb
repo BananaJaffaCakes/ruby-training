@@ -4,20 +4,25 @@
 
 #ruby .\02_redacted.rb
 
-puts "Original Text"
+puts "**Original Words (space delimited)"
 text = gets.chomp
-puts "Redacted Word"
-redact = gets.chomp
-redact.downcase!
-
 words = text.split(" ")
 
+puts "**Redacted Words (space delimited)"
+redact = gets.chomp
+redact.downcase!
+redact_words = redact.split(" ")
+
+
+puts "**Updated Words"
 words.each do |word|
   downcase_word = word.downcase
   #print "match #{downcase_word} : #{redact} print "
-  if downcase_word == redact
-    print "REDACTED "
-  else
-    print word + " "
+  redact_words.each do |redact_word|
+    if downcase_word == redact_word
+      print "REDACTED "
+    else
+      print word + " "
+    end
   end
 end
