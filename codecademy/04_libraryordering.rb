@@ -1,4 +1,4 @@
-def alphabetize(arr, rev=false)
+def alphabetize(arr, rev=false) #rev is set to false if arguement is missing when method called
     arr.sort!
     if rev
       arr.reverse!

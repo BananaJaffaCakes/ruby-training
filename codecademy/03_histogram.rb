@@ -2,7 +2,7 @@ puts "Text:"
 text = gets.chomp
 words = text.split(" ")
 
-frequencies = Hash.new(0)
+frequencies = Hash.new(0) #creates a new empty hash where values for items are defaulted to zero
 
 words.each {|item| frequencies[item] += 1}
 
