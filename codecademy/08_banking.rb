@@ -17,26 +17,22 @@ class Account
     end
     
     def display_balance(pin_number)
-      puts pin_number == pin ? "Balance: $#{@balance}." : pin_error
+      puts pin_check(pin_number) ? "Balance: $#{@balance}." : pin_error
     end
     
     def withdraw(pin_number, amount)
-      if pin_number == pin and (@balance - amount) >= 0
+      if pin_check(pin_number) and (@balance - amount) >= 0
         @balance -= amount
         puts "Withdrew $#{amount}. New balance: $#{@balance}"
-      elsif pin_number == pin and (@balance - amount) < 0
+      elsif pin_check(pin_number) and (@balance - amount) < 0
         puts "Withdrawal amount of $#{amount} exceeds balance: $#{@balance}"
-      else
-        puts pin_error
       end
     end
 
     def deposit(pin_number, amount)
-      if pin_number == pin
+      if pin_check(pin_number)
         @balance += amount
         puts "Deposited $#{amount}. New balance: $#{@balance}"
-      else
-        puts pin_error
       end
     end
     
@@ -44,6 +40,15 @@ class Account
     
     def pin
       @pin = 1234
+    end
+
+    def pin_check(pin_number)
+      if pin_number == pin
+        return true
+      else
+        pin_error
+        return false
+      end
     end
     
     def pin_error
