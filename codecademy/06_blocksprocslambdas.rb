@@ -1,3 +1,5 @@
+#ruby .\06_blocksprocslambdas.rb
+
 # blocks
 odds_n_ends = [:weezard, 42, "Trady Blix", 3, true, 19, 12.345]
 

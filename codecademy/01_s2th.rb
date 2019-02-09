@@ -2,8 +2,15 @@
 #Think about how you might account for words in which the letter "c" sounds like an "s"
 #Think about how you might preserve the user's original capitalization
 
-print "String: "
-user_input = gets.chomp
+input = false
+while input == false
+  print "String: "
+  user_input = gets.chomp
+  if user_input.length > 0
+    input = true
+  end
+end
+
 user_input.downcase!
 
 if user_input.include? "s"
